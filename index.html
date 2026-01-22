@@ -4,26 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <link rel="stylesheet" href="./styles/output.css">
 </head>
 <body>
     <!--Inicio do Header-->
-    <header class="w-full h-[420px] bg-zinc-900 bg-home">
-        <div>
-            <img src="img/hamb-1.png" alt="logo da marca" class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200 ">
+    <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <!--Contanier do cabeçalho-->
+
+            <img src="img/hamb-1.png" 
+            alt="logo da marca" 
+            class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200 ">
             <!-- marca do logo-->
 
 
 
-             <h1 class="text-3x1 mt-4 mb-2 front-bold text-white
-             "> drink</h1>
+             <h1 class="text-4xl mt-4 mb-2 font-bold text-white"
+             > drink</h1>
              <!-- Nome da estabelecimento-->
+
+             <span class="text-white font-medium"
+             > Rua dev,10 aqui vem o endereço</span>
+             <!-- Endereço vai aqui-->
+
+             <div class="bg-green-600 px-4 py-1 rounded-lg  " id="date-span">
+                <span class="text-white font-medium">Seg a Dom - 18:00 as 22:00</span>
+             </div>
+             <!-- A class do fechado e aberto-->
 
 
         </div>
     </header>
 
-    <!--Inicio do Header-->
+    <!--Fim da Header-->
+
+    <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
+  Conheça nosso menu
+    </h2>
+
+
+
+    <!-- Inicio do menu-->
+    <div id="menu">
+
+        <main class="grid grid-cols-1">
+
+            <!--Produto Item-->
+            <div class="flex gap-2"> <!--Contanier-->
+
+                <img src="img/hamb-1.png"
+                 alt="Hamburger smash"
+                 class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
+                 <!--Imagem do produto-->
+
+                 <div> <!-- Informaçoes do produto-->
+                    <p>Hamburger Smash</p>
+                    <p> aqui vai a descrião do que é feito ou de que é feito</p>
+
+                        <!-- Preço e botão-->
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 18,90</p>
+                        <button 
+                        class="bg-gray-900 px-5 rouned add-to-cart-btn"
+                        data-name="Hamburger Smash"
+                        data-price="18.90"
+                        > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
+
+                        
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+
+                    </div>
+                 </div>
+            </div>
+            <!-- Fim do Produto Item-->
+
+        </main>
+
+    </div>
+
+    <!-- fim do menu-->
+
 
     
 </body>
