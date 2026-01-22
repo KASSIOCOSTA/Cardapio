@@ -51,27 +51,59 @@
     <!-- Inicio do menu-->
     <div id="menu">
 
-        <main class="grid grid-cols-1">
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
 
             <!--Produto Item-->
-            <div class="flex gap-2"> <!--Contanier-->
+            <div class="flex gap-2 w-full"> <!--Contanier-->
 
                 <img src="img/hamb-1.png"
                  alt="Hamburger smash"
                  class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
                  <!--Imagem do produto-->
 
-                 <div> <!-- Informaçoes do produto-->
-                    <p>Hamburger Smash</p>
-                    <p> aqui vai a descrião do que é feito ou de que é feito</p>
+                 <div class="w-full"> <!-- Informaçoes do produto-->
+                    <p class="font-bold">Hamburger Smash</p>
+                    <p class="text-sm"> aqui vai a descrião do que é feito ou de que é feito</p>
 
                         <!-- Preço e botão-->
                     <div class="flex items-center gap-2 justify-between mt-3">
                         <p class="font-bold text-lg">R$ 18,90</p>
                         <button 
-                        class="bg-gray-900 px-5 rouned add-to-cart-btn"
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
                         data-name="Hamburger Smash"
                         data-price="18.90"
+                        > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
+
+
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+
+                    </div>
+                 </div>
+            </div>
+            <!-- Fim do Produto Item-->
+
+
+
+             <!--Produto Item-->
+            <div class="flex gap-2 w-full"> <!--Contanier-->
+
+                <img src="img/hamb-2.png"
+                 alt="Hamburger duplo"
+                 class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
+                 <!--Imagem do produto-->
+
+                 <div class="w-full"> <!-- Informaçoes do produto-->
+                    <p class="font-bold">Hamburger duplo</p>
+                    <p class="text-sm"> aqui vai a descrião do que é feito ou de que é feito</p>
+
+                        <!-- Preço e botão-->
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 32,90</p>
+                        <button 
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                        data-name="Hamburger duplo"
+                        data-price="32.90"
                         > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
 
                         
@@ -83,7 +115,156 @@
             </div>
             <!-- Fim do Produto Item-->
 
+
+
+            
+            <!--Produto Item-->
+            <div class="flex gap-2 w-full"> <!--Contanier-->
+
+                <img src="img/hamb-3.png"
+                 alt="Hamburger salad"
+                 class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
+                 <!--Imagem do produto-->
+
+                 <div class="w-full"> <!-- Informaçoes do produto-->
+                    <p class="font-bold">Hamburger Salad</p>
+                    <p class="text-sm"> aqui vai a descrião do que é feito ou de que é feito</p>
+
+                        <!-- Preço e botão-->
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 35,90</p>
+                        <button 
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                        data-name="Hamburger Salad"
+                        data-price="35.90"
+                        > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
+
+
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+
+                    </div>
+                 </div>
+            </div>
+            <!-- Fim do Produto Item-->
+
+
+
+             <!--Produto Item-->
+            <div class="flex gap-2 w-full"> <!--Contanier-->
+
+                <img src="img/hamb-4.png"
+                 alt="Hamburger frango"
+                 class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
+                 <!--Imagem do produto-->
+
+                 <div class="w-full"> <!-- Informaçoes do produto-->
+                    <p class="font-bold">Hamburger frango</p>
+                    <p class="text-sm"> aqui vai a descrião do que é feito ou de que é feito</p>
+
+                        <!-- Preço e botão-->
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 39,90</p>
+                        <button 
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                        data-name="Hamburger frango"
+                        data-price="39.90"
+                        > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
+
+                        
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+
+                    </div>
+                 </div>
+            </div>
+            <!-- Fim do Produto Item-->
+
+
         </main>
+
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-bold text-3xl ">
+                Bebidas
+            </h2>
+        </div>
+
+
+        <!--Grid bebidas-->
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" >
+         <!--Produto Item-->
+            <div class="flex gap-2 w-full"> <!--Contanier-->
+
+                <img src="img/refri-1.png"
+                 alt="Coca Lata"
+                 class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
+                 <!--Imagem do produto-->
+
+                 <div class="w-full"> <!-- Informaçoes do produto-->
+                    <p class="font-bold">Coca Lata</p>
+                    
+
+                        <!-- Preço e botão-->
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 5,00</p>
+                        <button 
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                        data-name="Coca Lata"
+                        data-price="5"
+                        > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
+
+                        
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+
+                    </div>
+                 </div>
+            </div>
+            <!-- Fim do Produto Item-->
+
+
+            <!--Produto Item-->
+            <div class="flex gap-2 w-full"> <!--Contanier-->
+
+                <img src="img/refri-2.png"
+                 alt="Guarana Lata"
+                 class="w-28 h-28 rounded-md hover:scale-110 hover:rotate-2 duration-300"> 
+                 <!--Imagem do produto-->
+
+                 <div class="w-full"> <!-- Informaçoes do produto-->
+                    <p class="font-bold">Guarana Lata</p>
+                    
+
+                        <!-- Preço e botão-->
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 5,00</p>
+                        <button 
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                        data-name="Guarana Lata"
+                        data-price="5"
+                        > <!-- aqui no butao vai o data-name para o nome no js, e o outro para o preço-->
+
+                        
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+
+                    </div>
+                 </div>
+            </div>
+            <!-- Fim do Produto Item-->
+
+
+ 
+        </div>
+
+
+
+        <!--Fim Grid bebidas-->
+
+
+
 
     </div>
 
