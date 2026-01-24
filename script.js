@@ -79,7 +79,7 @@ cart.forEach(item =>{
             <p>Qtn: ${item.quantity}</p>
             <p class=" font-medium mt-2">R$ ${item.price.toFixed(2)}</p>        
         </div>
-        <button>
+        <button class="remove-cart-btn" data-name="${item.name}">
              Remover 
         </button>
     </div>
@@ -90,5 +90,33 @@ cart.forEach(item =>{
 
     cartItemsContainer.appendChild(cartItemElement)
 })
-cartTotal.textContent = total
+cartTotal.textContent = total.toLocaleString("pt-br",{style:"currency", currency:"BRL"})
+
+
+cartCounter.innerHTML = cart.length
+}
+
+//funcao para remover
+
+cartItemsContainer.addEventListener("click", function(event){
+    if(event.target.classList.contains("remove-cart-btn")){
+        const name = event.target.getAttribute("data-name")
+        removeItemcart(name)
+    }
+})
+
+function removeItemcart(name){
+    const index = cart.findIndex(item=> item.name ===name)
+
+    if(index !== -1){
+        const item =cart[index]
+
+        if(item.quantity>1){
+            item.quantity -= 1
+            updateCartModal()
+            return
+        }
+        cart.splice(index,1)
+         updateCartModal()
+    }
 }
