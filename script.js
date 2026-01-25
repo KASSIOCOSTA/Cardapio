@@ -93,7 +93,12 @@ cart.forEach(item =>{
 cartTotal.textContent = total.toLocaleString("pt-br",{style:"currency", currency:"BRL"})
 
 
-cartCounter.innerHTML = cart.length
+const totalItems = cart.reduce((total, item) => {
+    return total + item.quantity;
+}, 0);
+
+cartCounter.innerHTML = totalItems;
+
 }
 
 //funcao para remover
