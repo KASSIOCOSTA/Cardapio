@@ -3,7 +3,8 @@ const cartBtn = document.getElementById("cart-btn")
 const cartModal = document.getElementById("cart-modal") //carrinho
 const cartItemsContainer = document.getElementById("cart-items") // itens que vao aparecer no carrinho
 const cartTotal = document.getElementById("cart-total") // valor do carrinho
-const checkoutBtn = document.getElementById("checkout-btn")// finalizar o pedido
+const checkoutBtnLocal = document.getElementById("checkout-btn-local")// finalizar o pedido local
+const checkoutBtn = document.getElementById("checkout-btn")// finalizar o pedido delivery
 const closeModalBtn = document.getElementById("close-modal-btn")// fechar
 const cartCounter = document.getElementById("cart-count") //quantidade do carrinho
 const addressInput = document.getElementById("address") // endereço
@@ -135,16 +136,15 @@ function removeItemcart(name){
         
     })
 
-
-//Finalizar Pedido
-    checkoutBtn.addEventListener("click", function(){
+//Finalizar Pedido local
+    checkoutBtnLocal.addEventListener("click", function(){
          let total = 0;
 
     cart.forEach(item => {
         total += item.price * item.quantity;
     });
 
-    const isOpen = checkRestauranOpen()
+   /* const isOpen = checkRestauranOpen()
         if(!isOpen){
         Toastify({
             text: "Ops! O restaurante está fechado",
@@ -159,7 +159,57 @@ function removeItemcart(name){
             },
         }).showToast();
             return
-        }
+        }*/
+        if(cart.length ===0) 
+            return Toastify({
+                        text: "Insira itens no carrinho",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top", // `top` ou `bottom`
+                        position: "right", // `left`, `center` ou `right`
+                        stopOnFocus: true,
+                        style: {
+                            background: "#ef4444",
+                            zIndex: 9999,  // garante que fique acima de outros elementos
+                        },
+                    }).showToast()
+
+        //Enviar pedido para Api whats
+        const mensagem = gerarMensagemWhatsapp();
+        const message = encodeURIComponent(mensagem);
+
+        const phone = "98970016960"
+
+        window.open(`https://wa.me/${phone}?text=Olá, gostaria de fazer o pedido:\n${message}%0A[Retirada no Local]%0ATotal:${total.toFixed(2)}`, "_blank")
+
+        cart =[]
+        updateCartModal()
+    })
+
+//Finalizar Pedido delivery
+    checkoutBtn.addEventListener("click", function(){
+         let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    });
+
+   /* const isOpen = checkRestauranOpen()
+        if(!isOpen){
+        Toastify({
+            text: "Ops! O restaurante está fechado",
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` ou `bottom`
+            position: "right", // `left`, `center` ou `right`
+            stopOnFocus: true,
+            style: {
+                background: "#ef4444",
+                zIndex: 9999,  // garante que fique acima de outros elementos
+            },
+        }).showToast();
+            return
+        }*/
         if(cart.length ===0) 
             return Toastify({
                         text: "Insira itens no carrinho",
@@ -199,11 +249,11 @@ function gerarMensagemWhatsapp() {
 
     const itens = cart
         .map(item => 
-            `\nQtn:(${item.quantity})  ${item.name}  Preço: R$ ${item.price.toFixed(2)}`
+            `\nQtd:[${item.quantity}]  ${item.name}  Preço: R$ ${item.price.toFixed(2)}`
         )
         .join("");
 
-    const endereco = `Endereço: ${addressInput.value}\n`;
+    const endereco = `Endereço: ${addressInput.value}`;
 
      return `${itens}\n\n${endereco}`;
 }
@@ -216,7 +266,7 @@ function gerarMensagemWhatsapp() {
 
 
 // verificar a hora e manipular o cart horario
-function checkRestauranOpen(){
+/*function checkRestauranOpen(){
     const data = new Date()
     const hora = data.getHours()
     const diaSemana = data.getDay()
@@ -232,4 +282,4 @@ if(isOpen){
 }else{
     spanItem.classList.add("bg-red-500")
     spanItem.classList.remove("bg-green-500")
-}
+}*/
