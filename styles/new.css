@@ -1,4 +1,7 @@
 .fundo{
-    background-image: url("../img/hamb-1.png");
-    
+    background-image: url("../img/bg.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
