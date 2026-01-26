@@ -141,11 +141,34 @@ function removeItemcart(name){
 
     const isOpen = checkRestauranOpen()
         if(!isOpen){
-            alert("Restauran Fechado no Momento")
+        Toastify({
+            text: "Ops! O restaurante está fechado",
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` ou `bottom`
+            position: "right", // `left`, `center` ou `right`
+            stopOnFocus: true,
+            style: {
+                background: "#ef4444",
+                zIndex: 9999,  // garante que fique acima de outros elementos
+            },
+        }).showToast();
             return
         }
         if(cart.length ===0) 
-            return alert("Adicione itens ao carrinho antes de finalizar o pedido")
+            return Toastify({
+                        text: "Insira itens no carrinho",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top", // `top` ou `bottom`
+                        position: "right", // `left`, `center` ou `right`
+                        stopOnFocus: true,
+                        style: {
+                            background: "#ef4444",
+                            zIndex: 9999,  // garante que fique acima de outros elementos
+                        },
+                    }).showToast()
+
         if(addressInput.value ===""){
             addressWarn.classList.remove("hidden")
             addressInput.classList.add("border-red-500")
@@ -159,6 +182,9 @@ function removeItemcart(name){
         const phone = "98970016960"
 
         window.open(`https://wa.me/${phone}?text=Olá, gostaria de fazer o pedido:\n${message}%0ATaxa de Entrega 5,00%0AVL.Produto:${total.toFixed(2)}%0ATotal:R$${(5+Number(total)).toFixed(2)} `, "_blank")
+
+        cart =[]
+        updateCartModal()
     })
 
 
@@ -189,7 +215,7 @@ function checkRestauranOpen(){
     const data = new Date()
     const hora = data.getHours()
     const diaSemana = data.getDay()
-        return hora >= 18 && hora < 22 && diaSemana !== 0
+        return hora >= 18 && hora < 23 && diaSemana !== 0
     
 }
 const spanItem = document.getElementById("date-span")
