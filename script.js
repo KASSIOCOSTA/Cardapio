@@ -133,6 +133,11 @@ function removeItemcart(name){
 
 //Finalizar Pedido
     checkoutBtn.addEventListener("click", function(){
+         let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    });
 
     const isOpen = checkRestauranOpen()
         if(!isOpen){
@@ -148,16 +153,36 @@ function removeItemcart(name){
         }
 
         //Enviar pedido para Api whats
-        const cartItems = cart.map((item)=>{
-            return(
-                ` ${item.name} Quantidade:(${item.quantity}) Preço: R$ ${item.price}`
-            )
-        }).join("\n")
-        const message = encodeURIComponent(cartItems)
+        const mensagem = gerarMensagemWhatsapp();
+        const message = encodeURIComponent(mensagem);
+
         const phone = "98970016960"
 
-        window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+        window.open(`https://wa.me/${phone}?text=Olá, gostaria de fazer o pedido:\n${message}%0ATaxa de Entrega 5,00%0AVL.Produto:${total.toFixed(2)}%0ATotal:R$${(5+Number(total)).toFixed(2)} `, "_blank")
     })
+
+
+
+function gerarMensagemWhatsapp() {
+    
+
+    const itens = cart
+        .map(item => 
+            `\nQtn:(${item.quantity})  ${item.name}  Preço: R$ ${item.price.toFixed(2)}`
+        )
+        .join("");
+
+    const endereco = `Endereço: ${addressInput.value}\n`;
+
+     return `${itens}\n\n${endereco}`;
+}
+
+
+
+
+
+
+
 
 // verificar a hora e manipular o cart horario
 function checkRestauranOpen(){
